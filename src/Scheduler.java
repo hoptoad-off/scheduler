@@ -86,13 +86,13 @@ public class Scheduler {
 
             switch (input) {
                 case 1:
-                    University.printStaff();
+                    StaffManage.printAll();
                     break;
                 case 2:
-                    addStaff();
+                    StaffManage.add();
                     break;
                 case 3:
-                    removeStaff();
+                    StaffManage.remove();
                     break;
                 default:
                     System.out.println("Wrong Number");
@@ -100,39 +100,6 @@ public class Scheduler {
         } while (input != 0);
     }
 
-    private static void removeStaff() {
-        University.printStaff();
-
-        System.out.println("Enter the index:");
-        int index = inputReader.readInt();
-
-        University.removeStaff(index);
-    }
-
-    private static void addStaff() {
-        System.out.print("Enter Staff name: ");
-        String name = inputReader.readLine();
-
-        System.out.print("Enter Staff age: ");
-        byte age = inputReader.readByte();
-
-        System.out.print("Enter Staff email: ");
-        String email = inputReader.readLine();
-        email = checkAndGetValidEmail(email);
-
-        System.out.print("Enter Staff position: ");
-        String position = inputReader.readLine();
-
-        while (!StaffPositionChecker.isValid(position)) {
-            System.out.print("Enter Staff position: ");
-            position = inputReader.readLine();
-        }
-
-        System.out.print("Enter Staff salary: ");
-        int salary = inputReader.readInt();
-
-        University.addStaff(name, email, position, salary, age);
-    }
 
     private static void manageCohorts() {
         int input;
@@ -192,13 +159,13 @@ public class Scheduler {
 
             switch (input) {
                 case 1:
-                    showCourses();
+                    CourseManage.printAll();
                     break;
                 case 2:
-                    addCourse();
+                    CourseManage.add();
                     break;
                 case 3:
-                    removeCohort();
+                    CourseManage.remove();
                     break;
                 default:
                     System.out.println("Wrong number");
@@ -209,23 +176,6 @@ public class Scheduler {
     private static void showCourses() {
         University.printCourses();
     }
-
-    private static void addCourse() {
-        System.out.print("Enter course id: ");
-        String id = inputReader.readLine();
-
-        System.out.print("Enter course name: ");
-        String name = inputReader.readLine();
-
-        System.out.print("Enter course's credits: ");
-        byte credits = inputReader.readByte();
-
-        System.out.print("Enter course's credits: ");
-        byte sessionsPerWeek = inputReader.readByte();
-
-        University.addCourse(name, credits, id, sessionsPerWeek);
-    }
-
 
     private static void manageTeachers() {
         int input;
@@ -239,53 +189,18 @@ public class Scheduler {
 
             switch (input) {
                 case 1:
-                    showTeachers();
+                    TeacherManage.printAll();
                     break;
                 case 2:
-                    addTeacher();
+                    TeacherManage.add();
                     break;
                 case 3:
-                    removeTeacher();
+                    TeacherManage.remove();
                     break;
                 default:
                     System.out.println("Wrong number");
             }
         } while (input != 0);
-    }
-
-    private static void showTeachers() {
-        University.printTeachers();
-    }
-
-    private static void addTeacher() {
-        System.out.print("Enter teacher's name: ");
-        String name = inputReader.readLine();
-
-        System.out.print("Enter teacher's age: ");
-        byte age = inputReader.readByte();
-
-        System.out.print("Enter teacher's status: ");
-        String status = inputReader.readLine();
-
-        while (!TeacherStatusChecker.isValid(status)) {
-            System.out.print("Enter teacher's status: ");
-            status = inputReader.readLine();
-        }
-
-        System.out.print("Enter teacher's email: ");
-        String email = inputReader.readLine();
-        email = checkAndGetValidEmail(email);
-
-        University.addTeacher(name, age, status, email);
-    }
-
-    private static void removeTeacher() {
-        showTeachers();
-
-        System.out.println("Enter the index:");
-        int index = inputReader.readInt();
-
-        University.removeTeacher(index);
     }
 
     private static void manageRooms() {
@@ -300,13 +215,13 @@ public class Scheduler {
 
             switch (input) {
                 case 1:
-                    showRooms();
+                    RoomManage.printAll();
                     break;
                 case 2:
-                    addRoom();
+                    RoomManage.add();
                     break;
                 case 3:
-                    removeRoom();
+                    RoomManage.remove();
                     break;
                 default:
                     System.out.println("Wrong number");
@@ -314,37 +229,8 @@ public class Scheduler {
         } while (input != 0);
     }
 
-    private static void showRooms() {
-        University.printRooms();
-    }
 
-    private static void addRoom() {
-        System.out.print("Enter room's number: ");
-        short number = inputReader.readShort();
-
-        System.out.print("Enter room's capacity: ");
-        byte capacity = inputReader.readByte();
-
-        System.out.print("Enter room's description: ");
-        String description = inputReader.readLine();
-
-        System.out.print("Enter room's busyness: ");
-        boolean isBusy = inputReader.readBoolean();
-
-        University.addRoom(number, capacity, description, isBusy);
-    }
-
-    private static void removeRoom() {
-        showRooms();
-
-        System.out.println("Enter the index:");
-        int index = inputReader.readInt();
-
-        University.removeRoom(index);
-    }
-
-
-    private static String checkAndGetValidEmail(String email) {
+    public static String checkAndGetValidEmail(String email) {
         if (EmailChecker.isValid(email)) {
             return email;
         }

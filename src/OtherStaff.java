@@ -1,9 +1,5 @@
-public class OtherStaff {
-    private String name;
-    private byte age;
+public class OtherStaff extends Staff{
     private String position;
-    private String email;
-    private double salary; // in dollar
 
     public static final String[] POSITIONS = {
             "administration",
@@ -12,24 +8,8 @@ public class OtherStaff {
             "medical"
     };
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public void setPosition(String position) {
         this.position = position;
-    }
-
-    public void setAge(byte age) {
-        this.age = age;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
     }
 
     public String toString() {
