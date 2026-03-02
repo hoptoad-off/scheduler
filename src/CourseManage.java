@@ -1,7 +1,9 @@
 public class CourseManage implements CRUD {
-    Course[] courses = University.courses;
+    private final Course[] courses = University.courses;
+    private final InputReader inputReader = InputReader.instance;
 
-    public void add(){
+    @Override
+    public void add() {
         System.out.print("Enter course id: ");
         String id = inputReader.readLine();
 
@@ -27,11 +29,11 @@ public class CourseManage implements CRUD {
         while (courses[i] != null) {
             i++;
         }
-`
         courses[i] = course;
     }
 
-    public void remove(){
+    @Override
+    public void remove() {
         printAll();
 
         System.out.println("Enter the index:");
@@ -40,7 +42,8 @@ public class CourseManage implements CRUD {
         courses[index] = null;
     }
 
-    public void printAll(){
+    @Override
+    public void printAll() {
         System.out.println("Staff List:");
         for (int i = 0; i < courses.length; i++) {
             Course course = courses[i];

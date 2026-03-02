@@ -1,4 +1,6 @@
 public class RoomManage implements CRUD {
+    private static final InputReader inputReader = InputReader.instance;
+    
     public void add() {
         System.out.print("Enter room's number: ");
         short number = inputReader.readShort();

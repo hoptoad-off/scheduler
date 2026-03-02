@@ -1,6 +1,11 @@
 import java.util.Scanner;
 
 public class InputReader {
+    public static final InputReader instance = new InputReader();
+
+    private InputReader() {
+    }
+
     private final Scanner SCANNER = new Scanner(System.in);
 
     public int readInt() {
@@ -26,15 +31,6 @@ public class InputReader {
     }
 
     public boolean readBoolean() {
-        while (true) {
-            try {
-                boolean value = SCANNER.nextBoolean();
-                SCANNER.nextLine();
-                return value;
-            } catch (java.util.InputMismatchException e) {
-                SCANNER.nextLine(); // Clear the invalid input
-                System.out.print("Invalid input. Please enter 'true' or 'false': ");
-            }
-        }
+        return SCANNER.nextBoolean();
     }
 }

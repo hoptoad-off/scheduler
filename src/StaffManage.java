@@ -1,5 +1,7 @@
 public class StaffManage implements CRUD {
+    private final InputReader inputReader = InputReader.instance;
 
+    @Override
     public void add() {
         System.out.print("Enter Staff name: ");
         String name = inputReader.readLine();
@@ -38,6 +40,7 @@ public class StaffManage implements CRUD {
         University.staffs[i] = staff;
     }
 
+    @Override
     public void remove() {
         printAll();
 
@@ -47,6 +50,7 @@ public class StaffManage implements CRUD {
         University.staffs[index] = null;
     }
 
+    @Override
     public void printAll() {
         OtherStaff[] staffs = University.staffs;
 

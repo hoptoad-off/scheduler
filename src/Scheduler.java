@@ -1,7 +1,8 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Scheduler {
-    private static final InputReader inputReader = new InputReader();
+    private static final InputReader inputReader = InputReader.instance;
     private static final StaffManage staffManage = new StaffManage();
     private static final CourseManage courseManage = new CourseManage();
     private static final CohortManage cohortManage = new CohortManage();
@@ -107,29 +108,37 @@ public class Scheduler {
 
 
     private static void manageCohorts() {
-        int input;
-        do {
-            System.out.println("**** Cohort Management Menu ****");
-            System.out.println("1. Show Cohorts");
-            System.out.println("2. Add Cohort");
-            System.out.println("3. Remove Cohort");
-            System.out.print("Enter number (O.Back): ");
-            input = inputReader.readInt();
+        try {
+            int input;
+            do {
+                System.out.println("**** Cohort Management Menu ****");
+                System.out.println("1. Show Cohorts");
+                System.out.println("2. Add Cohort");
+                System.out.println("3. Remove Cohort");
+                System.out.print("Enter number (O.Back): ");
+                input = inputReader.readInt();
 
-            switch (input) {
-                case 1:
-                    cohortManage.printAll();
-                    break;
-                case 2:
-                    cohortManage.add();
-                    break;
-                case 3:
-                    cohortManage.remove();
-                    break;
-                default:
-                    System.out.println("Wrong Number");
-            }
-        } while (input != 0);
+                switch (input) {
+                    case 1:
+                        cohortManage.printAll();
+                        break;
+                    case 2:
+                        cohortManage.add();
+                        break;
+                    case 3:
+                        cohortManage.remove();
+                        break;
+                    default:
+                        System.out.println("Wrong Number");
+                }
+            } while (input != 0);
+        } catch (InputMismatchException e) {
+            System.out.println("Input mismatch exception");
+            manageCourses();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            manageCourses();
+        }
     }
 
     private static void manageCourses() {

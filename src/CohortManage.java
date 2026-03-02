@@ -1,6 +1,9 @@
 public class CohortManage implements CRUD {
-    Cohort[] cohorts = University.cohorts;
-    public void add(){
+    private final Cohort[] cohorts = University.cohorts;
+    private final InputReader inputReader = InputReader.instance;
+
+    @Override
+    public void add() {
         System.out.print("Enter cohort id: ");
         int id = inputReader.readInt();
 
@@ -29,7 +32,8 @@ public class CohortManage implements CRUD {
         cohorts[i] = cohort;
     }
 
-    public void remove(){
+    @Override
+    public void remove() {
         printAll();
 
         System.out.println("Enter the index:");
@@ -37,7 +41,8 @@ public class CohortManage implements CRUD {
         cohorts[index] = null;
     }
 
-    public void printAll(){
+    @Override
+    public void printAll() {
         System.out.println("Cohort List:");
 
         for (int i = 0; i < cohorts.length; i++) {

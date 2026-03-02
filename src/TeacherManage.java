@@ -1,4 +1,7 @@
 public class TeacherManage implements CRUD {
+    private final InputReader inputReader = InputReader.instance;
+
+    @Override
     public void add() {
         System.out.print("Enter teacher's name: ");
         String name = inputReader.readLine();
@@ -33,6 +36,7 @@ public class TeacherManage implements CRUD {
         University.teachers[i] = teacher;
     }
 
+    @Override
     public void remove() {
         printAll();
 
@@ -42,6 +46,7 @@ public class TeacherManage implements CRUD {
         University.teachers[index] = null;
     }
 
+    @Override
     public void printAll() {
         Teacher[] teachers = University.teachers;
 
