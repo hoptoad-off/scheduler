@@ -1,6 +1,11 @@
 import java.util.Scanner;
 
 public class InputReader {
+    public static final InputReader instance = new InputReader();
+
+    private InputReader() {
+    }
+
     private final Scanner SCANNER = new Scanner(System.in);
 
     public int readInt() {
