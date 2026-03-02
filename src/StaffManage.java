@@ -1,6 +1,6 @@
-public class StaffManage implements UniversityManage {
+public class StaffManage implements CRUD {
 
-    public static void add() {
+    public void add() {
         System.out.print("Enter Staff name: ");
         String name = inputReader.readLine();
 
@@ -38,7 +38,7 @@ public class StaffManage implements UniversityManage {
         University.staffs[i] = staff;
     }
 
-    public static void remove() {
+    public void remove() {
         printAll();
 
         System.out.println("Enter the index:");
@@ -47,7 +47,7 @@ public class StaffManage implements UniversityManage {
         University.staffs[index] = null;
     }
 
-    public static void printAll() {
+    public void printAll() {
         OtherStaff[] staffs = University.staffs;
 
         System.out.println("Staff List:");

@@ -26,6 +26,15 @@ public class InputReader {
     }
 
     public boolean readBoolean() {
-        return SCANNER.nextBoolean();
+        while (true) {
+            try {
+                boolean value = SCANNER.nextBoolean();
+                SCANNER.nextLine();
+                return value;
+            } catch (java.util.InputMismatchException e) {
+                SCANNER.nextLine(); // Clear the invalid input
+                System.out.print("Invalid input. Please enter 'true' or 'false': ");
+            }
+        }
     }
 }

@@ -1,5 +1,5 @@
-public class TeacherManage implements UniversityManage{
-    public static void add() {
+public class TeacherManage implements CRUD {
+    public void add() {
         System.out.print("Enter teacher's name: ");
         String name = inputReader.readLine();
 
@@ -33,7 +33,7 @@ public class TeacherManage implements UniversityManage{
         University.teachers[i] = teacher;
     }
 
-    public static void remove() {
+    public void remove() {
         printAll();
 
         System.out.println("Enter the index:");
@@ -42,7 +42,7 @@ public class TeacherManage implements UniversityManage{
         University.teachers[index] = null;
     }
 
-    public static void printAll() {
+    public void printAll() {
         Teacher[] teachers = University.teachers;
 
         System.out.println("Teacher List:");

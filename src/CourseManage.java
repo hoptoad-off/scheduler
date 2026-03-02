@@ -1,5 +1,7 @@
-public class CourseManage implements UniversityManage {
-    public static void add(){
+public class CourseManage implements CRUD {
+    Course[] courses = University.courses;
+
+    public void add(){
         System.out.print("Enter course id: ");
         String id = inputReader.readLine();
 
@@ -9,22 +11,36 @@ public class CourseManage implements UniversityManage {
         System.out.print("Enter course's credits: ");
         byte credits = inputReader.readByte();
 
-        System.out.print("Enter course's credits: ");
+        System.out.print("Enter course's sessions per week: ");
         byte sessionsPerWeek = inputReader.readByte();
 
-        University.addCourse(name, credits, id, sessionsPerWeek);
+        int i = 0;
+
+        Course course = new Course();
+
+        course.setCode(id);
+        course.setName(name);
+        course.setCredits(credits);
+        course.setSessionsPerWeek(sessionsPerWeek);
+
+        //finding empty index
+        while (courses[i] != null) {
+            i++;
+        }
+`
+        courses[i] = course;
     }
-    public static void remove(){
+
+    public void remove(){
         printAll();
 
         System.out.println("Enter the index:");
         int index = inputReader.readInt();
 
-        University.removeCohort(index);
+        courses[index] = null;
     }
-    public static void printAll(){
-        Course[] courses = University.courses;
 
+    public void printAll(){
         System.out.println("Staff List:");
         for (int i = 0; i < courses.length; i++) {
             Course course = courses[i];

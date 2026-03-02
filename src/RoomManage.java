@@ -1,5 +1,5 @@
-public class RoomManage implements UniversityManage {
-    public static void add() {
+public class RoomManage implements CRUD {
+    public void add() {
         System.out.print("Enter room's number: ");
         short number = inputReader.readShort();
 
@@ -29,7 +29,7 @@ public class RoomManage implements UniversityManage {
         University.rooms[i] = room;
     }
 
-    public static void remove() {
+    public void remove() {
         printAll();
 
         System.out.println("Enter the index:");
@@ -38,7 +38,7 @@ public class RoomManage implements UniversityManage {
         University.rooms[index] = null;
     }
 
-    public static void printAll() {
+    public void printAll() {
         Room[] rooms = University.rooms;
 
         System.out.println("Room List:");

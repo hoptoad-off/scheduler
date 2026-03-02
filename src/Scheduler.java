@@ -2,6 +2,11 @@ import java.util.Scanner;
 
 public class Scheduler {
     private static final InputReader inputReader = new InputReader();
+    private static final StaffManage staffManage = new StaffManage();
+    private static final CourseManage courseManage = new CourseManage();
+    private static final CohortManage cohortManage = new CohortManage();
+    private static final TeacherManage teacherManage = new TeacherManage();
+    private static final RoomManage roomManage = new RoomManage();
 
     static {
         System.out.println("Welcome to Scheduling System");
@@ -86,13 +91,13 @@ public class Scheduler {
 
             switch (input) {
                 case 1:
-                    StaffManage.printAll();
+                    staffManage.printAll();
                     break;
                 case 2:
-                    StaffManage.add();
+                    staffManage.add();
                     break;
                 case 3:
-                    StaffManage.remove();
+                    staffManage.remove();
                     break;
                 default:
                     System.out.println("Wrong Number");
@@ -113,37 +118,18 @@ public class Scheduler {
 
             switch (input) {
                 case 1:
-                    showCohorts();
+                    cohortManage.printAll();
                     break;
                 case 2:
-                    addCohort();
+                    cohortManage.add();
                     break;
                 case 3:
-                    removeCohort();
+                    cohortManage.remove();
                     break;
                 default:
                     System.out.println("Wrong Number");
             }
         } while (input != 0);
-    }
-
-    private static void showCohorts() {
-        University.printCohorts();
-    }
-
-    private static void addCohort() {
-
-    }
-
-    private static void removeCohort() {
-        Scanner inputReader = new Scanner(System.in);
-
-        showCohorts();
-
-        System.out.println("Enter the index:");
-        int index = inputReader.nextInt();
-
-        University.removeCohort(index);
     }
 
     private static void manageCourses() {
@@ -159,22 +145,18 @@ public class Scheduler {
 
             switch (input) {
                 case 1:
-                    CourseManage.printAll();
+                    courseManage.printAll();
                     break;
                 case 2:
-                    CourseManage.add();
+                    courseManage.add();
                     break;
                 case 3:
-                    CourseManage.remove();
+                    courseManage.remove();
                     break;
                 default:
                     System.out.println("Wrong number");
             }
         } while (input != 0);
-    }
-
-    private static void showCourses() {
-        University.printCourses();
     }
 
     private static void manageTeachers() {
@@ -189,13 +171,13 @@ public class Scheduler {
 
             switch (input) {
                 case 1:
-                    TeacherManage.printAll();
+                    teacherManage.printAll();
                     break;
                 case 2:
-                    TeacherManage.add();
+                    teacherManage.add();
                     break;
                 case 3:
-                    TeacherManage.remove();
+                    teacherManage.remove();
                     break;
                 default:
                     System.out.println("Wrong number");
@@ -215,13 +197,13 @@ public class Scheduler {
 
             switch (input) {
                 case 1:
-                    RoomManage.printAll();
+                    roomManage.printAll();
                     break;
                 case 2:
-                    RoomManage.add();
+                    roomManage.add();
                     break;
                 case 3:
-                    RoomManage.remove();
+                    roomManage.remove();
                     break;
                 default:
                     System.out.println("Wrong number");
