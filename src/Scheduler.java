@@ -8,6 +8,7 @@ public class Scheduler {
     private static final CohortManage cohortManage = new CohortManage();
     private static final TeacherManage teacherManage = new TeacherManage();
     private static final RoomManage roomManage = new RoomManage();
+    private static final Cafeteria cafeteria = new Cafeteria();
 
     static {
         System.out.println("Welcome to Scheduling System");
@@ -64,15 +65,21 @@ public class Scheduler {
         int input;
         do {
             System.out.println("**** Cafeteria Management Menu ****");
-            System.out.println("Does cafeteria work right now:" + Cafeteria.isActive());
+            System.out.println("Does cafeteria work right now: " + cafeteria.checkStatus());
 
-            System.out.println("1. Change Status to " + !Cafeteria.isActive());
+            if (!cafeteria.isActive()){
+                System.out.println("(It is their breaktime right now!)");
+            }
+
+            cafeteria.showWorkTime();
+
+            System.out.println("1. Change Status to " + !cafeteria.isActive());
             System.out.print("Enter number (O.Back): ");
             input = inputReader.readInt();
 
             switch (input) {
                 case 1:
-                    Cafeteria.setActive(!Cafeteria.isActive());
+                    cafeteria.setActive(!cafeteria.isActive());
                     break;
                 default:
                     System.out.println("Wrong Number");
