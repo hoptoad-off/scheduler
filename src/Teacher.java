@@ -1,3 +1,5 @@
+package model;
+
 public class Teacher extends Staff{
 
     public static final String[] STATUSES = {

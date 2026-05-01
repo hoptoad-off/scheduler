@@ -5,6 +5,7 @@ import model.University;
 import util.InputReader;
 import util.EmailChecker;
 import util.StaffPositionChecker;
+import app.Scheduler;
 
 public class StaffManage implements CRUD {
     private final InputReader inputReader = InputReader.instance;
@@ -39,7 +40,6 @@ public class StaffManage implements CRUD {
         staff.setAge(age);
         staff.setSalary(salary);
 
-        //finding empty index
         int i = 0;
         while (University.staffs[i] != null) {
             i++;
@@ -66,7 +66,7 @@ public class StaffManage implements CRUD {
         for (int i = 0; i < staffs.length; i++) {
             OtherStaff staff = staffs[i];
 
-            if (staff != null) { //to avoid NullPointerException
+            if (staff != null) {
                 System.out.println(i + "." + staff.toString());
             }
         }

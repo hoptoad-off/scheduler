@@ -1,3 +1,5 @@
+package model;
+
 public class OtherStaff extends Staff{
     private String position;
 

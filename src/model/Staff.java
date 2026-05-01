@@ -4,28 +4,12 @@ abstract class Staff {
     public String name;
     public byte age;
     public String email;
-    public double salary; // in dollar
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
+    public double salary;
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+    public double getSalary() { return salary; }
     public void setSalary(double salary) {
         if (salary < 0) {
             System.out.println("Nobody works for minus");
@@ -51,24 +35,7 @@ abstract class Staff {
             }
         }
     }
-
-    public byte getAge() {
-        return age;
-    }
-
-    public void setAge(byte age) {
-        if (age <= 0) {
-            System.out.println("Impossible");
-        } else {
-            this.age = age;
-        }
-    }
-
-    public String toString() {
-        return "Staff{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", email='" + email + '\'' +
-                '}';
-    }
+    public byte getAge() { return age; }
+    public void setAge(byte age) { if (age <= 0) System.out.println("Impossible"); else this.age = age; }
+    public String toString() { return "Staff{" + "name='" + name + '\'' + ", age=" + age + ", email='" + email + '\'' + '}'; }
 }

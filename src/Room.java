@@ -1,3 +1,5 @@
+package model;
+
 public class Room {
     private byte capacity;
     private short number;

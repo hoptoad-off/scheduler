@@ -1,3 +1,5 @@
+package util;
+
 public class EmailChecker {
     public static boolean isValid(String email) {
         if (email == null || email.isEmpty()) {

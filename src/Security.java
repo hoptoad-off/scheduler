@@ -1,3 +1,5 @@
+package model;
+
 public class Security {
     private byte totalGuards;
     private short totalCameras;

@@ -1,3 +1,6 @@
+package model;
+
+import util.InputReader;
 import java.time.LocalTime;
 
 public class Cafeteria {

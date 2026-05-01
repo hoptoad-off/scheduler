@@ -31,7 +31,6 @@ public class CourseManage implements CRUD {
         course.setCredits(credits);
         course.setSessionsPerWeek(sessionsPerWeek);
 
-        //finding empty index
         while (courses[i] != null) {
             i++;
         }
@@ -54,7 +53,7 @@ public class CourseManage implements CRUD {
         for (int i = 0; i < courses.length; i++) {
             Course course = courses[i];
 
-            if (course != null) { //to avoid NullPointerException
+            if (course != null) {
                 System.out.println(i + "." + course.toString());
             }
         }

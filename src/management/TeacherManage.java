@@ -4,6 +4,7 @@ import model.Teacher;
 import model.University;
 import util.InputReader;
 import util.TeacherStatusChecker;
+import app.Scheduler;
 
 public class TeacherManage implements CRUD {
     private final InputReader inputReader = InputReader.instance;
@@ -34,7 +35,6 @@ public class TeacherManage implements CRUD {
         teacher.setStatus(status);
         teacher.setEmail(email);
 
-        //finding empty index
         int i = 0;
         while (University.teachers[i] != null) {
             i++;
@@ -61,7 +61,7 @@ public class TeacherManage implements CRUD {
         for (int i = 0; i < teachers.length; i++) {
             Teacher teacher = teachers[i];
 
-            if (teacher != null) { //to avoid NullPointerException
+            if (teacher != null) {
                 System.out.println(i + "." + teacher.toString());
             }
         }

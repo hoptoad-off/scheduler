@@ -29,7 +29,6 @@ public class CohortManage implements CRUD {
         cohort.setMajor(major);
         cohort.setStudying(isStudying);
 
-        //finding empty index
         int i = 0;
         while (cohorts[i] != null) {
             i++;
@@ -54,7 +53,7 @@ public class CohortManage implements CRUD {
         for (int i = 0; i < cohorts.length; i++) {
             Cohort cohort = cohorts[i];
 
-            if (cohort != null) { //to avoid NullPointerException
+            if (cohort != null) {
                 System.out.println(i + "." + cohort.toString());
             }
         }

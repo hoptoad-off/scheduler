@@ -6,7 +6,7 @@ import util.InputReader;
 
 public class RoomManage implements CRUD {
     private static final InputReader inputReader = InputReader.instance;
-    
+
     public void add() {
         System.out.print("Enter room's number: ");
         short number = inputReader.readShort();
@@ -20,15 +20,12 @@ public class RoomManage implements CRUD {
         System.out.print("Enter room's busyness: ");
         boolean isBusy = inputReader.readBoolean();
 
-        //University.addRoom(number, capacity, description, isBusy);
-
         Room room = new Room();
         room.setNumber(number);
         room.setCapacity(capacity);
         room.setDescription(description);
         room.setBusy(isBusy);
 
-        //finding empty index
         int i = 0;
         while (University.rooms[i] != null) {
             i++;
@@ -53,7 +50,7 @@ public class RoomManage implements CRUD {
         for (int i = 0; i < rooms.length; i++) {
             Room room = rooms[i];
 
-            if (room != null) { //to avoid NullPointerException
+            if (room != null) {
                 System.out.println(i + "." + room.toString());
             }
         }

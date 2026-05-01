@@ -1,3 +1,7 @@
+package util;
+
+import model.Teacher;
+
 public class TeacherStatusChecker {
     public static boolean isValid(String status) {
         if (status == null) {

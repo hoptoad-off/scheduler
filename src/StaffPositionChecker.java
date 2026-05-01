@@ -1,3 +1,7 @@
+package util;
+
+import model.OtherStaff;
+
 public class StaffPositionChecker {
     public static boolean isValid(String position) {
         if (position == null) {

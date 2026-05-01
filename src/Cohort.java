@@ -1,3 +1,5 @@
+package model;
+
 public class Cohort {
     public static final byte MAX_STUDENTS = 48; // It is university requirement
     public Course[] getCourses;
